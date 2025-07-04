@@ -106,6 +106,8 @@ main() {
       echo "chart_version=" >chart_version.txt
     fi
   else
+    latest_tag=$(lookup_latest_tag)
+    echo "chart_version=${latest_tag}" >chart_version.txt
     install_chart_releaser
     rm -rf .cr-index
     mkdir -p .cr-index
